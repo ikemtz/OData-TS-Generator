@@ -8,22 +8,8 @@ steps:
   persistCredentials: true
 
 - script: |
-    git config user.email "pcalchi@aim.com" 
+    git config user.email "ikemtz@outlook.com"
     git config user.name "Isaac Martinez"
-
-- task: Npm@1
-  displayName: 'npm version'
-  inputs:
-    command: custom
-    verbose: false
-    customCommand: 'version patch'
-
-- bash: |
-   git push origin HEAD:$SourceBranchName
-   git push --tags
-  displayName: 'Git Push New Version'
-  env:
-    SourceBranchName: $(Build.SourceBranchName)
 
 - task: Npm@1
   displayName: 'npm install'
@@ -89,10 +75,22 @@ steps:
   displayName: 'Publish Quality Gate Result'
 
 - task: Npm@1
+  displayName: 'npm version'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'version patch'
+
+- bash: |
+   git push origin HEAD:$SourceBranchName
+   git push --tags
+  displayName: 'Git Push New Version'
+  env:
+    SourceBranchName: $(Build.SourceBranchName)
+
+- task: Npm@1
   displayName: 'npm publish'
   inputs:
     command: publish
     verbose: false
     publishEndpoint: IkeMtz-npm
-
-
