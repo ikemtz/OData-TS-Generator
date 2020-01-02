@@ -9,7 +9,7 @@ import {
   ISwaggerDefinitionProperties,
   ISwaggerPropertyDefinition,
 } from '../models/swagger';
-import { IValidators } from '../models/Validators';
+import { IValidators } from '../models/validators';
 import { EnumHelpers } from './enum-helper';
 import { Helpers } from './helper';
 import { NameSpaceHelpers } from './namespace-helpers';
