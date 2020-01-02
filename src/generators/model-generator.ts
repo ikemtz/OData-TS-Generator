@@ -349,12 +349,10 @@ function generateFormGroupFactories(namespaceGroups: INamespaceGroups, folder: s
       });
 
       let nrGeneratedFiles = 0;
-      const exclusionProperties = ['createdBy', 'createdOnUtc','updatedBy','updatedOnUtc' ]
+      const exclusionProperties = ['createdBy', 'createdOnUtc', 'updatedBy', 'updatedOnUtc'];
       each(typeCol, type => {
         const outputFileName = join(typeFolder, `${kebabCase(type.fullTypeName)}.form-group-fac.ts`);
-        data.type = {...type,
-          properties : type.properties.filter(prop => !exclusionProperties.includes(prop.name))
-        }; 
+        data.type = { ...type, properties: type.properties.filter(prop => !exclusionProperties.includes(prop.name)) };
         data.hasComplexType = type.properties.some(property => property.isComplexType);
         let result: string = '';
         try {

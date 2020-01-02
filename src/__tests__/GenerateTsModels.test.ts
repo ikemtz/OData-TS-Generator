@@ -2,7 +2,7 @@ import { existsSync, readdirSync } from 'fs';
 import { generateTsModels } from '../index';
 
 beforeAll(async () => {
-  await generateTsModels('https://im-wa-cmpo-nrsr.azurewebsites.net/swagger/v1/swagger.json', './output/');
+  await generateTsModels('https://petstore.swagger.io/v2/swagger.json', './output/');
 });
 
 test('Generate TS Models should generate an output directory', async () => {
